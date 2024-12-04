@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            background-color: honeydew;
+            color: rgb(61, 22, 22);
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            width: 100%;
+            background-color: rgb(5, 48, 65);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu img {
+            height: 80px;
+            width: auto;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 0 15px;
+        }
+
+        .menu li:hover {
+            text-decoration: underline;
+            color: bisque;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            display: block;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: bisque;
+        }
+
+        .footer {
+            background-color: rgb(5, 48, 65);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: large;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px hsla(273, 84%, 12%, 0.2);
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: bisque;
+        }
+
+        table.contact-details {
+            margin: 20px auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: whitesmoke;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        table.contact-details th,
+        table.contact-details td {
+            border: 2px solid black;
+            padding: 10px;
+            text-align: left;
+            font-size: large;
+            color: black;
+        }
+
+        table.contact-details th {
+            background-color: lightblue;
+            color: black;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <img src="hplogo.png" height="auto" width="70px" alt="logo">
+        <ul>
+            <li><a href="HPAGE.html">Back to Home</a></li>
+        </ul>
+    </div>
+
+    <h1><u><center>Contact Us</center></u></h1>
+
+    <form id="contactForm">
+        <table class="contact-details">
+            <tr>
+                <th>Contact Information</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>Phone No.</td>
+                <td><input type="tel" name="phone" placeholder="080-123-456" required></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" placeholder="elitestay@gmail.com" required></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="text" name="address"  placeholder="#01, 100ft road, Indiranagar, Bangalore" required>
+                </td>
+            </tr>
+        </table>
+        <div id="map"></div>
+        <center>
+            <button type="submit">Submit</button>
+        </center>
+    </form>
+
+    <footer class="footer">
+        <p><a href="#"></a></p>THANK YOU
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const lat = 12.971793038375958;
+        const lon = 77.64119621339061;
+
+        // Initialize the map
+        const map = L.map('map').setView([lat, lon], 15);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add marker
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup('<b>Indiranagar</b><br>#01, 100ft Road, Bangalore')
+            .openPopup();
+    </script>
+</body>
+</html>

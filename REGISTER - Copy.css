@@ -1,0 +1,90 @@
+body{
+    /* background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff); */
+    background-image: url(REGISTER2.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.container{
+    background-color: #ffffff12;
+    border: 20px;
+    border-radius: 35px;   
+    padding:1.5rem;
+    margin:50px auto;
+    align-items: center;
+    width:450px;
+    align-content: center;
+    box-shadow: 0 20px 35px rgba(0,0,1,0.9);
+}
+#input1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: xxx-large;
+    text-transform: uppercase;
+    text-align:center;
+    height: 80px;
+    color:#e6eaecd4;
+}
+
+#input{
+    color:#051a25;
+    font-size: x-large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 200;
+    width:100%;
+    background-color: transparent;
+    border:none;
+}
+.header{
+    text-align: center;
+    margin:4px;
+    padding:55px;
+    border-radius: 5px;
+    font-size: xx-large;
+    font-weight: 400;
+    font-family:'Times New Roman', Times, serif;
+}
+.footer{
+    background-color: #85a9cd;
+    color:#051a25;
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 200;
+    text-align: center;
+    margin:4px;
+    padding:20px;
+    border-radius: 5px;
+
+}
+input{
+    background-color: transparent;
+    border:none;
+    font-size: medium;
+    color: rgb(238, 231, 231);
+    border-bottom: 2px solid #ccc;
+
+}
+input.placeholder{
+    color:white;
+}
+input:focus {
+    border-bottom: 2px solid #ffffff;
+}
+button{
+    background-color: transparent;
+    color:white;
+}
+#logo{
+    color: black;
+    background-color: #eaedf5;
+    padding: 4px;
+    letter-spacing: 2px;
+}
+p{
+    COLOR:rgba(255, 255, 255, 0.523);
+}
+a{
+    border-bottom: none;
+    text-transform: none;
+    text-decoration: none;
+    color:#ffffff9f
+}

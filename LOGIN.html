@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="SIGN.css">
+    <title>SIGN IN</title>
+</head>
+<body><br><br><br><br><br>
+    <center>
+    <div class="container">
+        <div id="input1">REGISTER</div>
+        <div id="input">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" name="name" id=" type"placeholder="Enter the name" required>
+        </div><br>
+        <div id="input">
+        <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="GMAIL" placeholder="Enter the GMAIL" required>
+        </div><br>
+        <div id="input">
+            <i class="fa-solid fa-phone"></i>
+            <input type="tel" maxlength="10" name="PHONE" placeholder="Enter the Phone Number" required>
+        </div><br>
+        <div id="input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="Password" placeholder="Enter the Password" required> <BR>
+                <p>HAVE AN ACCOUNT.?<a href="REGISTER.html">LOGIN</a></p>
+        </div> <BR>
+        <div id="input">
+            <INPUT TYPE="SUBMIT">
+            <INPUT TYPE="RESET">
+        </div>
+    </div></center>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const formInputs = document.querySelectorAll("input");
+    const submitButton = document.querySelector("input[type='submit']");
+
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        let isValid = true;
+
+        formInputs.forEach(input => {
+            if (input.type !== "submit" && input.type !== "reset") {
+                if (input.value.trim() === "") {
+                    alert(`${input.placeholder} is required.`);
+                    isValid = false;
+                }
+
+                if (input.type === "email" && !validateEmail(input.value)) {
+                    alert("Please enter a valid email address.");
+                    isValid = false;
+                }
+                if (input.type === "tel" && !validatePhoneNumber(input.value)) {
+                    alert("Please enter a valid phone number (10 digits).");
+                    isValid = false;
+                }
+                if (input.type === "password" && input.value.length < 6) {
+                    alert("Password must be at least 6 characters long.");
+                    isValid = false;
+                }
+            }
+        });
+
+        if (isValid) {
+            alert("Form submitted successfully!");
+        }
+    });
+
+    function validateEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    function validatePhoneNumber(phone) {
+        const phonePattern = /^\d{10}$/;
+        return phonePattern.test(phone);
+    }
+});
+
+    </script>
+</body>
+</html>

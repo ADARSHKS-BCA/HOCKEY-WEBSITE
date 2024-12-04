@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Line Drawing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; 
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        canvas {
+            border: 1px solid black;
+            margin-top: 20px;
+            cursor: crosshair;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+        .navbar {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+    </style><center>
+    <div class="navbar">
+        <h1>Game Planner</h1>
+        <a href="HPAGE.html">Go Back Home</a>
+    </div>
+
+    <h1>PLAN YOUR GAME</h1>
+    <p>Click and drag on the canvas to draw lines.<br>Make your game plan visually!</p>
+    <canvas id="drawingCanvas" width="600" height="400"></canvas>
+    <div class="controls">
+        <button id="clearCanvas">Erase</button>
+        <button id="downloadCanvas">Print</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("drawingCanvas");
+        const ctx = canvas.getContext("2d");
+        const clearButton = document.getElementById("clearCanvas");
+        const downloadButton = document.getElementById("downloadCanvas");
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+
+        function startDrawing(event) {
+            isDrawing = true;
+            [lastX, lastY] = [event.offsetX, event.offsetY];
+        }
+
+        function draw(event) {
+            if (!isDrawing) return;
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY); 
+            ctx.lineTo(event.offsetX, event.offsetY); 
+            ctx.strokeStyle = "black"; 
+            ctx.lineWidth = 2; 
+            ctx.stroke();
+            [lastX, lastY] = [event.offsetX, event.offsetY];
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath(); 
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+        }
+
+        function downloadCanvasAsImage() {
+            const link = document.createElement("a");
+            link.download = "game_plan.png"; 
+            link.href = canvas.toDataURL(); 
+            link.click();
+      }
+        canvas.addEventListener("mousedown", startDrawing);
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mouseout", stopDrawing);
+        clearButton.addEventListener("click", clearCanvas);
+        downloadButton.addEventListener("click", downloadCanvasAsImage);
+    </script>
+    </center>
+</body>
+</html>
