@@ -1,0 +1,20 @@
+<xml version='1.0'>
+<hockey>
+<details>
+<player1>
+<name>adarsh</name>
+<playerno>7</playerno>
+<position>forward</position>
+</player1>
+<player2>
+<name>akshay</name>
+<playerno>5</playerno>
+<position>midfielder</position>
+</player2>
+<player3>
+<name>anurag</name>
+<playerno>77</playerno>
+<position>defender</position></player3>
+</details>
+</hockey>
+</xml>
