@@ -1,0 +1,46 @@
+export const teamsData = [
+  {
+    id: 1,
+    name: "Ice Breakers",
+    city: "Tamil Dragons",
+    founded: 2001,
+    logo: "🏒",
+    color: "#00d4ff",
+    players: [
+      { name: "Akshay", position: "Forward", jersey: 9, isCaptain: false },
+      { name: "Anurag", position: "Goalie", jersey: 1, isKeyPlayer: true },
+      { name: "Adarsh", position: "Forward", jersey: 7, isCaptain: true },
+      { name: "Rahul", position: "Defender", jersey: 12, isCaptain: false },
+      { name: "Vikram", position: "Midfielder", jersey: 8, isCaptain: false },
+    ],
+  },
+  {
+    id: 2,
+    name: "Frozen Flames",
+    city: "Karnataka",
+    founded: 1995,
+    logo: "🔥",
+    color: "#ff2d55",
+    players: [
+      { name: "Mark Lee", position: "Defender", jersey: 4, isCaptain: false },
+      { name: "Suresh", position: "Forward", jersey: 10, isCaptain: true },
+      { name: "Deepak", position: "Goalie", jersey: 1, isKeyPlayer: true },
+      { name: "Arjun", position: "Midfielder", jersey: 6, isCaptain: false },
+      { name: "Kiran", position: "Forward", jersey: 11, isCaptain: false },
+    ],
+  },
+  {
+    id: 3,
+    name: "Storm Riders",
+    city: "Mumbai",
+    founded: 2010,
+    logo: "⚡",
+    color: "#ffd60a",
+    players: [
+      { name: "Rohit", position: "Forward", jersey: 9, isCaptain: true },
+      { name: "Amit", position: "Defender", jersey: 3, isCaptain: false },
+      { name: "Prasad", position: "Goalie", jersey: 1, isKeyPlayer: true },
+      { name: "Nikhil", position: "Midfielder", jersey: 5, isCaptain: false },
+    ],
+  },
+];
