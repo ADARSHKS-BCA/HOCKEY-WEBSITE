@@ -70,7 +70,7 @@ export default function Dashboard() {
             <TeamCard team={user.team} isMember={true} onLeave={handleLeaveTeam} />
           ) : (
             <div className="glass-card p-6 text-center border-dashed border-2 border-white/20">
-              <div className="text-4xl mb-4">🤷‍♂️</div>
+
               <h3 className="text-lg font-bold mb-2">No Team Yet</h3>
               <p className="text-white/50 text-sm mb-6">Join a team to participate in matches, or queue up solo.</p>
               

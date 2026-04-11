@@ -116,10 +116,10 @@ export default function AdminPanel() {
         <h2 className="text-xl font-bold border-b border-white/10 pb-2 mb-6">Quick Actions</h2>
         <div className="flex flex-wrap gap-4">
           <button onClick={handleRunMatchmaking} className="btn-secondary flex-1 min-w-[200px]" disabled={stats.queuedPlayers < 2}>
-            🔄 Run Matchmaking Draft
+            Run Matchmaking Draft
           </button>
           <button onClick={handleAutoGenerateMatches} className="btn-secondary flex-1 min-w-[200px]">
-            📅 Auto-generate Matches
+            Auto-generate Matches
           </button>
         </div>
         {stats.queuedPlayers < 2 && (
@@ -166,7 +166,7 @@ export default function AdminPanel() {
                     </span>
                   </td>
                   <td className="p-3 text-center">
-                     {match.notified ? '✅' : '❌'}
+                     {match.notified ? 'Yes' : 'No'}
                   </td>
                   <td className="p-3 flex justify-end gap-2">
                      {match.status !== 'completed' && (

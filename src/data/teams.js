@@ -1,7 +1,7 @@
 export const teamsData = [
   {
     id: 1,
-    name: "Ice Breakers",
+    name: "Field Breakers",
     city: "Tamil Dragons",
     founded: 2001,
     logo: "🏒",

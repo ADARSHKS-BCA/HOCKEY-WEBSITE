@@ -26,10 +26,14 @@ export default {
         heading: ['Outfit', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
+      transitionTimingFunction: {
+        'apple-fluid': 'cubic-bezier(0.25, 1, 0.5, 1)',
+      },
       animation: {
-        'fade-in-up': 'fadeInUp 0.6s ease forwards',
-        'fade-in': 'fadeIn 0.5s ease forwards',
+        'fade-in-up': 'fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+        'fade-in': 'fadeIn 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2.5s linear infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -43,6 +47,10 @@ export default {
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 15px rgba(0,212,255,0.2)' },
           '50%': { boxShadow: '0 0 30px rgba(0,212,255,0.4)' },
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
       },
     },

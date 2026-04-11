@@ -113,21 +113,21 @@ export default function Contact() {
             <div className="contact-info-card glass-card">
               <h3>Get in Touch</h3>
               <div className="contact-item">
-                <div className="contact-item-icon">📧</div>
+                <div className="contact-item-icon">Email</div>
                 <div>
                   <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Email</div>
                   <div>adarsh.ks@bca.christuniversity.in</div>
                 </div>
               </div>
               <div className="contact-item">
-                <div className="contact-item-icon">📞</div>
+                <div className="contact-item-icon">Phone</div>
                 <div>
                   <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Phone</div>
                   <div>080-123-456</div>
                 </div>
               </div>
               <div className="contact-item">
-                <div className="contact-item-icon">📍</div>
+                <div className="contact-item-icon">Location</div>
                 <div>
                   <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>Address</div>
                   <div>#01, 100ft Road, Indiranagar, Bangalore</div>
@@ -153,7 +153,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {toast && <div className="toast">✅ Message sent successfully!</div>}
+      {toast && <div className="toast">Message sent successfully!</div>}
     </div>
   )
 }

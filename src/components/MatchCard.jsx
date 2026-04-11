@@ -11,8 +11,8 @@ export default function MatchCard({ match }) {
       )}
       
       <div className="flex justify-between text-xs text-white/50 font-medium mb-4 uppercase tracking-wider">
-        <span>📅 {matchDate} @ {match.time}</span>
-        <span>📍 {match.location}</span>
+        <span>{matchDate} @ {match.time}</span>
+        <span>{match.location}</span>
       </div>
       
       <div className="flex justify-between items-center bg-white/5 rounded-xl p-4">

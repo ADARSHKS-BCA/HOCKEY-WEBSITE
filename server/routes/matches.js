@@ -60,7 +60,7 @@ router.post('/auto', auth, admin, async (req, res) => {
     const shuffled = teams.sort(() => Math.random() - 0.5);
     const pairCount = Math.floor(shuffled.length / 2);
     const matches = [];
-    const locations = ['HockeyHub Arena', 'Frost Stadium', 'Ice Palace', 'Winter Dome'];
+    const locations = ['HockeyHub Arena', 'Turf Stadium', 'Field Palace', 'Summer Dome'];
 
     for (let i = 0; i < pairCount; i++) {
       const matchDate = new Date(Date.now() + (i + 1) * 24 * 60 * 60 * 1000);

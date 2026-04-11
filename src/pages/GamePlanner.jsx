@@ -142,10 +142,10 @@ export default function GamePlanner() {
 
           <div className="canvas-actions">
             <button className="btn-secondary" onClick={clearCanvas}>
-              🗑️ Erase All
+              Erase All
             </button>
             <button className="btn-primary" onClick={downloadCanvas}>
-              📥 Download PNG
+              Download PNG
             </button>
           </div>
         </div>

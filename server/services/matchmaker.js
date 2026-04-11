@@ -58,7 +58,7 @@ export const runMatchmaking = async (teamSize = 5) => {
 
   // 5. Pair teams into matches
   const matches = [];
-  const locations = ['HockeyHub Arena', 'Frost Stadium', 'Ice Palace', 'Winter Dome', 'Glacier Field'];
+  const locations = ['HockeyHub Arena', 'Turf Stadium', 'Field Palace', 'Summer Dome', 'Greenwood Pitch'];
 
   for (let i = 0; i < createdTeams.length; i += 2) {
     const matchDate = new Date(Date.now() + (i / 2 + 1) * 24 * 60 * 60 * 1000); // Days from now

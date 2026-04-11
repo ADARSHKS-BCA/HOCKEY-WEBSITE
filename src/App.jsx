@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
@@ -13,22 +13,39 @@ import Leaderboard from './pages/Leaderboard'
 import AdminPanel from './pages/AdminPanel'
 
 export default function App() {
+  const location = useLocation()
+  const showVideoBg = location.pathname !== '/'
+  
+  // Specific routes that will use a static image instead of the video background
+  const staticImageRoutes = ['/dashboard', '/login', '/register']
+  const useStaticImage = staticImageRoutes.includes(location.pathname)
+
   return (
     <div className="flex flex-col min-h-screen relative w-full overflow-hidden">
-      {/* Absolute Fixed Video Background - Merged perfectly for the whole site */}
-      <div className="fixed inset-0 w-full h-full z-[-1]">
-        {/* Light overlay for cohesiveness with the Light Theme */}
+      {/* Absolute Fixed Video Background - Hidden on Home for the GSAP canvas sequence */}
+      {showVideoBg && (
+        <div className="fixed inset-0 w-full h-full z-[-1]">
+          {/* Light overlay for cohesiveness with the Light Theme */}
         <div className="absolute inset-0 bg-white/50 dark:bg-black/60 z-10 transition-colors duration-500 backdrop-blur-sm"></div>
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover"
-        >
-          <source src="/Alfa_hockey_stick_202604071425.mp4" type="video/mp4" />
-        </video>
+        {useStaticImage ? (
+          <img 
+            src="/images/frames/00150.jpg" 
+            alt="Hockey Stick Background" 
+            className="w-full h-full object-cover" 
+          />
+        ) : (
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+          >
+            <source src="/Alfa_hockey_stick_202604071425.mp4" type="video/mp4" />
+          </video>
+        )}
       </div>
+      )}
 
       <Navbar />
       <main className="flex-grow pt-20 relative z-10">

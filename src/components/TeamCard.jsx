@@ -17,7 +17,7 @@ export default function TeamCard({ team, isMember = false, onLeave }) {
             <span className="bg-white/5 px-2 py-0.5 rounded">PLAYERS: {team.players?.length || 0}/{team.maxPlayers}</span>
           </div>
         </div>
-        <div className="text-3xl opacity-80">🏒</div>
+        <div className="text-3xl opacity-80 font-heading font-bold text-brand-primary">H</div>
       </div>
       
       <div className="flex-grow">

@@ -84,7 +84,7 @@ export default function Matchmaking() {
         {user.team ? (
           // Already in team
           <div className="animate-fade-in-up">
-            <div className="text-6xl mb-6">🏆</div>
+
             <h1 className="text-3xl font-black mb-4">You are already on a team!</h1>
             <p className="text-white/60 mb-8 max-w-md mx-auto">
               You've been successfully assigned to a team. You cannot solo queue while on a roster.
@@ -106,7 +106,7 @@ export default function Matchmaking() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 aspect-square border-2 border-brand-secondary/20 rounded-full animate-[ping_4s_cubic-bezier(0,0,0.2,1)_infinite] delay-700"></div>
 
             <div className="relative z-10">
-              <div className="text-6xl mb-6 animate-pulse">⏳</div>
+
               <h1 className="text-3xl font-black mb-2 text-brand-primary">Finding Match...</h1>
               <p className="text-white/60 mb-8">
                 You are in the queue. Waiting for admin to trigger matchmaking or enough players to join.
@@ -128,7 +128,7 @@ export default function Matchmaking() {
         ) : (
           // Not in queue
           <div className="animate-fade-in-up relative z-10">
-            <div className="text-6xl mb-6">🎲</div>
+
             <h1 className="text-3xl font-black mb-4">Solo Matchmaking</h1>
             <p className="text-white/60 mb-8 max-w-md mx-auto">
               Don't have a team? Join the solo queue and our algorithm will automatically match you with players of similar skill levels.
