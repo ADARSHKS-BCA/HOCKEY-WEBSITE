@@ -1,4 +1,4 @@
-# 🏒 HockeyHub
+# HockeyHub
 
 A modern, full-stack web application for managing hockey game registrations, team management, solo matchmaking, match scheduling, and automated email notifications — all wrapped in a premium glassmorphic UI with a cinematic video background.
 
@@ -248,17 +248,6 @@ Open [http://localhost:5500](http://localhost:5500) in your browser.
 3. Admin pairs teams into matches manually or via auto-generation.
 
 ---
-
-## 🖼️ Screenshots
-
-| Light Mode | Dark Mode |
-|:----------:|:---------:|
-| Clean glassmorphic cards over video | Deep contrast with neon accents |
-
-> Toggle between modes using the ☀️/🌙 button in the top navigation bar.
-
----
-
 ## 👨‍💻 Author
 
 **Adarsh KS**  

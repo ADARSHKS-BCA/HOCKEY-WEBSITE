@@ -88,7 +88,7 @@ export default function Home() {
                 <p className="text-white/70 mb-10 flex-grow font-medium text-lg leading-relaxed">
                   Check out the Hall of Fame. Track the most successful franchises and top individual players.
                 </p>
-                <Link to="/leaderboard" className="btn-secondary w-full text-center text-white bg-white/10 hover:bg-white/20">
+                <Link to="/leaderboard" className="btn-primary w-full text-center">
                   View Rankings
                 </Link>
               </div>
