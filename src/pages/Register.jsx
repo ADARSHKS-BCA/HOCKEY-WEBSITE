@@ -19,7 +19,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (formData.password.length < 6) {
       return setError('Password must be at least 6 characters long');
     }
@@ -44,7 +44,7 @@ export default function Register() {
       <div className="glass-card w-full max-w-lg p-8 relative">
         <div className="absolute top-0 right-0 w-32 h-32 bg-brand-secondary/20 blur-[50px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-primary/20 blur-[50px] rounded-full"></div>
-        
+
         <div className="relative z-10">
           <h1 className="text-3xl font-black mb-2 text-center">Join HockeyHub</h1>
           <p className="text-gray-500 dark:text-white/50 text-center mb-8">Create your account to start playing.</p>
@@ -57,12 +57,12 @@ export default function Register() {
                 name="name"
                 required
                 className="form-input"
-                placeholder="John Doe"
+                placeholder="Please enter your name"
                 value={formData.name}
                 onChange={handleChange}
               />
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-1">Email</label>
@@ -71,7 +71,7 @@ export default function Register() {
                   name="email"
                   required
                   className="form-input"
-                  placeholder="john@example.com"
+                  placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -83,13 +83,13 @@ export default function Register() {
                   name="phone"
                   required
                   className="form-input"
-                  placeholder="1234567890"
+                  placeholder="Enter the number"
                   value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-white/70 mb-1">Password</label>
@@ -118,8 +118,8 @@ export default function Register() {
               </div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={loading}
               className="btn-primary w-full py-3 mt-6 text-center disabled:opacity-50"
             >
@@ -132,7 +132,7 @@ export default function Register() {
           </div>
         </div>
       </div>
-      
+
       {error && <Toast message={error} type="error" onClose={() => setError('')} />}
     </div>
   );

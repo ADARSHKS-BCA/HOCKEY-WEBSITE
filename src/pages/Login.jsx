@@ -32,7 +32,7 @@ export default function Login() {
     <div className="container mx-auto px-4 py-20 flex justify-center items-center min-h-[80vh]">
       <div className="glass-card w-full max-w-md p-8 relative">
         <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/20 blur-[50px] rounded-full"></div>
-        
+
         <div className="relative z-10">
           <h1 className="text-3xl font-black mb-2 text-center">Welcome Back</h1>
           <p className="text-gray-500 dark:text-white/50 text-center mb-8">Sign in to manage your hockey games.</p>
@@ -44,12 +44,12 @@ export default function Login() {
                 type="email"
                 required
                 className="form-input"
-                placeholder="player@hockeyhub.com"
+                placeholder="player@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-white/70 mb-1">Password</label>
               <input
@@ -62,8 +62,8 @@ export default function Login() {
               />
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={loading}
               className="btn-primary w-full py-3 mt-4 text-center disabled:opacity-50"
             >
@@ -76,7 +76,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-      
+
       {error && <Toast message={error} type="error" onClose={() => setError('')} />}
     </div>
   );

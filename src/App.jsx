@@ -2,6 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
+import SmoothScroll from './components/SmoothScroll'
+import { AnimatePresence } from 'framer-motion'
 
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -21,8 +23,9 @@ export default function App() {
   const useStaticImage = staticImageRoutes.includes(location.pathname)
 
   return (
-    <div className="flex flex-col min-h-screen relative w-full overflow-hidden">
-      {/* Absolute Fixed Video Background - Hidden on Home for the GSAP canvas sequence */}
+    <SmoothScroll>
+      <div className="flex flex-col min-h-screen relative w-full overflow-hidden">
+        {/* Absolute Fixed Video Background - Hidden on Home for the GSAP canvas sequence */}
       {showVideoBg && (
         <div className="fixed inset-0 w-full h-full z-[-1]">
           {/* Light overlay for cohesiveness with the Light Theme */}
@@ -49,22 +52,25 @@ export default function App() {
 
       <Navbar />
       <main className="flex-grow pt-20 relative z-10">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          
-          {/* Protected Routes */}
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/teams" element={<ProtectedRoute><Teams /></ProtectedRoute>} />
-          <Route path="/matchmaking" element={<ProtectedRoute><Matchmaking /></ProtectedRoute>} />
-          
-          {/* Admin Routes */}
-          <Route path="/admin" element={<ProtectedRoute requireAdmin={true}><AdminPanel /></ProtectedRoute>} />
-        </Routes>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            
+            {/* Protected Routes */}
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/teams" element={<ProtectedRoute><Teams /></ProtectedRoute>} />
+            <Route path="/matchmaking" element={<ProtectedRoute><Matchmaking /></ProtectedRoute>} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<ProtectedRoute requireAdmin={true}><AdminPanel /></ProtectedRoute>} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
-    </div>
+      </div>
+    </SmoothScroll>
   )
 }

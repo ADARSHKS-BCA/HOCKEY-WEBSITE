@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import HockeySequence from '../components/HockeySequence';
 import Tilt from 'react-parallax-tilt';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const { user } = useAuth();
@@ -18,29 +19,43 @@ export default function Home() {
   };
 
   return (
-    <div className="relative w-full min-h-screen">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative w-full min-h-screen"
+    >
       {/* Background Scroll Animation */}
       <HockeySequence />
 
       {/* Hero Content - Scrolls Naturally */}
       <section className="relative w-full min-h-[90vh] flex flex-col justify-center items-center px-4 text-center">
-        <div className="max-w-4xl mx-auto animate-fade-in-up mt-20">
-          <div className="inline-block bg-white/10 border border-white/20 rounded-full px-5 py-2 text-brand-primary text-sm font-bold mb-6 shadow-lg backdrop-blur-md">
-            The Ultimate Hockey Manager
-          </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto mt-20"
+        >
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
             Dominate the <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-500">Field.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white font-medium mb-12 max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Manage your teams and automatically matchmake directly from our portal.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Main Single Page Content Flow */}
       <section className="relative w-full pb-32 pt-10">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             
             {/* Dashboard Card */}
             <Tilt {...tiltProps}>
@@ -124,9 +139,9 @@ export default function Home() {
               </Tilt>
             )}
 
-          </div>
+          </motion.div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }
