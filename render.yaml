@@ -1,0 +1,43 @@
+# ─── HockeyHub Render Blueprint ──────────────────────────────────
+# This file enables one-click deployment on Render.
+# Render auto-detects this file when you connect your repo.
+# Docs: https://docs.render.com/blueprint-spec
+
+services:
+  # ─── Backend API Server ──────────────────────────────────────
+  - type: web
+    name: hockeyhub-api
+    runtime: node
+    region: singapore  # Change to your preferred region
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false  # You'll set this manually (MongoDB Atlas connection string)
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a random 64-char secret
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USER
+        sync: false  # Set manually
+      - key: EMAIL_PASS
+        sync: false  # Set manually
+      - key: EMAIL_FROM
+        value: "HockeyHub <noreply@hockeyhub.com>"
+      - key: ADMIN_EMAIL
+        value: admin@hockeyhub.com
+      - key: ADMIN_PASSWORD
+        sync: false  # Set manually — use a strong password
+      - key: CONTACT_RECEIVER_EMAIL
+        sync: false  # Your personal Gmail where you want to receive contact messages
+      - key: FRONTEND_URL
+        sync: false  # Set to your Vercel frontend URL after deploying
+    healthCheckPath: /api/health

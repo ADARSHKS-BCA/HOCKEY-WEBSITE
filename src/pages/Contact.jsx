@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import api from '../api/axios'
 
 // Fix leaflet default icon
 delete L.Icon.Default.prototype._getIconUrl
@@ -14,11 +15,12 @@ L.Icon.Default.mergeOptions({
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState({})
-  const [toast, setToast] = useState(false)
+  const [toast, setToast] = useState(null) // { type: 'success' | 'error', text: '...' }
+  const [sending, setSending] = useState(false)
 
   useEffect(() => {
     if (toast) {
-      const t = setTimeout(() => setToast(false), 3000)
+      const t = setTimeout(() => setToast(null), 4000)
       return () => clearTimeout(t)
     }
   }, [toast])
@@ -33,13 +35,26 @@ export default function Contact() {
     return errs
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const errs = validate()
     setErrors(errs)
-    if (Object.keys(errs).length === 0) {
-      setToast(true)
+    if (Object.keys(errs).length > 0) return
+
+    setSending(true)
+    try {
+      const res = await api.post('/contact', {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        message: form.message.trim(),
+      })
+      setToast({ type: 'success', text: res.data.message || 'Message sent successfully!' })
       setForm({ name: '', email: '', message: '' })
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Failed to send message. Please try again.'
+      setToast({ type: 'error', text: msg })
+    } finally {
+      setSending(false)
     }
   }
 
@@ -102,8 +117,8 @@ export default function Contact() {
                 )}
               </div>
 
-              <button type="submit" className="btn-primary btn-lg" style={{ width: '100%' }}>
-                Send Message
+              <button type="submit" className="btn-primary btn-lg" style={{ width: '100%' }} disabled={sending}>
+                {sending ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
@@ -153,7 +168,13 @@ export default function Contact() {
         </div>
       </div>
 
-      {toast && <div className="toast">Message sent successfully!</div>}
+      {toast && (
+        <div className={`fixed bottom-6 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate-fade-in-up ${
+          toast.type === 'error' ? 'bg-red-500' : 'bg-emerald-500'
+        }`}>
+          {toast.text}
+        </div>
+      )}
     </div>
   )
 }
