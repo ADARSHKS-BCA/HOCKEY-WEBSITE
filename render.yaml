@@ -6,7 +6,7 @@
 services:
   # ─── Backend API Server ──────────────────────────────────────
   - type: web
-    name: hockeyhub-api
+    name: hockeyhub-backend
     runtime: node
     region: singapore  # Change to your preferred region
     plan: free
