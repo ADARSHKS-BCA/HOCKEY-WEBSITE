@@ -8,9 +8,22 @@ dist/
 # Environment variables
 .env
 .env.local
+.env.development
+.env.test
+.env.production
 .env.production.local
+.env.*.local
+.env*
+!.env.example
 server/.env
-
+server/.env.local
+server/.env.development
+server/.env.test
+server/.env.production
+server/.env.production.local
+server/.env.*.local
+server/.env*
+!server/.env.example
 # OS files
 .DS_Store
 Thumbs.db
