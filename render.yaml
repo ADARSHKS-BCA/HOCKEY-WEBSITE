@@ -39,5 +39,5 @@ services:
       - key: CONTACT_RECEIVER_EMAIL
         sync: false  # Your personal Gmail where you want to receive contact messages
       - key: FRONTEND_URL
-        value: https://hockey-website-jhx4.vercel.app
+        value: https://hockey-website-jhx4.vercel.app,https://hockey-website-six.vercel.app
     healthCheckPath: /api/health
