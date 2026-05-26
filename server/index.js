@@ -30,6 +30,10 @@ app.use(cors({
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
+    // Allow Vercel preview deployments (unique URLs generated per deploy)
+    if (origin.endsWith('-adarsh-kss-projects.vercel.app')) {
+      return callback(null, true);
+    }
     callback(new Error(`CORS: Origin ${origin} not allowed`));
   },
   credentials: true,
