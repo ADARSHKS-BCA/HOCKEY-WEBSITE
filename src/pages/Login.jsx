@@ -37,6 +37,16 @@ export default function Login() {
           <h1 className="text-3xl font-black mb-2 text-center">Welcome Back</h1>
           <p className="text-gray-500 dark:text-white/50 text-center mb-8">Sign in to manage your hockey games.</p>
 
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-lg text-sm mb-6 flex items-center justify-between gap-2 animate-fade-in">
+              <div className="flex items-center gap-2">
+                <span className="text-base">⚠️</span>
+                <span className="font-medium">{error}</span>
+              </div>
+              <button type="button" onClick={() => setError('')} className="text-red-400/80 hover:text-red-400 font-bold text-lg leading-none">&times;</button>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="block text-sm font-medium text-white/70 mb-1">Email</label>
@@ -76,8 +86,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-
-      {error && <Toast message={error} type="error" onClose={() => setError('')} />}
     </div>
   );
 }
